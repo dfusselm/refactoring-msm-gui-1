@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+    
   def index
     @list_of_movies = Movie.all.order({ :created_at => :desc })
 
@@ -10,6 +11,7 @@ class MoviesController < ApplicationController
     @the_movie = Movie.find(the_id)
 
     render({ :template => "movie_templates/show" })
+
   end
 
   def create
@@ -56,4 +58,6 @@ class MoviesController < ApplicationController
 
     redirect_to("/movies", { :notice => "Movie deleted successfully."} )
   end
+
+ 
 end
